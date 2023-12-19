@@ -6,7 +6,11 @@ from .sudoku import sudoku
 def indexView(request):
 
     if request.method == "POST":
+
         id = request.POST["selected"]
+        if request.POST["delete"]:
+            SudokuPuzzle.objects.get(id=id).delete()
+            return redirect("index")
 
         return redirect("puzzle", pk = id)
     
