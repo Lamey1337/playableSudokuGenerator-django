@@ -3,5 +3,6 @@ from .views import *
 
 urlpatterns = [
     path("", indexView, name="index"),
-    path("test/", testView, name="test"),
+    path("puzzle/<int:pk>", puzzleView, name="puzzle"),
+    path("newPuzzle", newPuzzleView, name="newPuzzle")
 ]

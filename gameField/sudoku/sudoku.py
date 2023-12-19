@@ -190,7 +190,7 @@ class Sudoku:
     def __iter__(self):
         return iter(self.field)
 
-    def puzzle(self, val=10):
+    def puzzle(self, val=5):
 
         res = []
 
