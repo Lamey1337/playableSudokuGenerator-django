@@ -3,6 +3,12 @@ from collections import defaultdict
 from random import choice, shuffle, randint
 
 class Sudoku:
+    """
+    
+    Create's Sudoku 9x9 field from list of numbers.
+    If there's no value return's Sudoku object that is ready to scramble.
+    
+    """
 
     def __init__(self, value=False):
 
@@ -61,6 +67,11 @@ class Sudoku:
         return str(self.field)
     
     def scramble(self):
+        """
+        
+        If there's no value: scramble's current Sudoku object
+        
+        """
         
         test = list(range(1,10))
         for x in self.field.data:
@@ -152,6 +163,14 @@ class Sudoku:
         return scramble
 
     def check(self, trace = False):
+
+        """
+        
+        Return's True If all all rules right Else False
+        Trace will print every move
+        
+        """
+
         correct = list(range(1, 10))
         res = []
         checks = []
@@ -192,6 +211,12 @@ class Sudoku:
 
     def puzzle(self, val=5):
 
+        """
+        
+        Return list with randomly deleted parts (deleted parts as 0)
+        
+        """
+
         res = []
 
         for x in self:
@@ -202,6 +227,13 @@ class Sudoku:
 
 
 def genSudoku(trace=False):
+
+    """
+    
+    Generate's solved Sudoku object with self.check() -> True
+
+    """
+
     while True:
         sudoku = Sudoku()
         sudoku.scramble()

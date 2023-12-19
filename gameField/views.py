@@ -8,7 +8,7 @@ def indexView(request):
     if request.method == "POST":
 
         id = request.POST["selected"]
-        if request.POST["delete"]:
+        if request.POST.get("delete"):
             SudokuPuzzle.objects.get(id=id).delete()
             return redirect("index")
 

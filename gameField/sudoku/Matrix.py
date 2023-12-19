@@ -1,6 +1,12 @@
-from random import randint
-
 class Matrix:
+    """
+    
+    Create's simple Matrix object from list
+
+    Example:
+    value = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+
+    """
 
     def __init__(self, value):
 
@@ -17,57 +23,6 @@ class Matrix:
         self.data = value
         self.matLen = len(self.data[0])
         self.coardinates = createCoardinates(self.data)
-
-    def __add__(self, other):
-
-        if type(other) != Matrix: raise TypeError("Something isn't a matrix")
-
-        if self.matLen > other.matLen:
-            emptyMatrix = self.data.copy()
-            smaller = other
-        else:
-            emptyMatrix = other.data.copy()
-            smaller = self
-
-        for i in smaller.coardinates:
-            x, y = i[0], i[1]
-            emptyMatrix[x][y] += smaller.data[x][y]
-
-        return Matrix(emptyMatrix)
-
-    def __sub__(self, other):
-
-        if type(other) != Matrix: raise TypeError("Something isn't a matrix")
-
-        if self.matLen > other.matLen:
-            emptyMatrix = self.data.copy()
-            smaller = other
-        else:
-            emptyMatrix = other.data.copy()
-            smaller = self
-
-        for i in smaller.coardinates:
-            x, y = i[0], i[1]
-            emptyMatrix[x][y] -= smaller.data[x][y]
-
-        return Matrix(emptyMatrix)
-
-    def __mul__(self, other):
-
-        if type(other) != Matrix: raise TypeError("Something isn't a matrix")
-
-        if self.matLen > other.matLen:
-            emptyMatrix = self.data.copy()
-            smaller = other
-        else:
-            emptyMatrix = other.data.copy()
-            smaller = self
-
-        for i in smaller.coardinates:
-            x, y = i[0], i[1]
-            emptyMatrix[x][y] *= smaller.data[x][y]
-
-        return Matrix(emptyMatrix)
 
     def __str__(self):
 
@@ -98,6 +53,11 @@ class Matrix:
 
 
 def createEmptyMatrix(matLen):
+    """
+    
+    Create's Matrix object filled with None
+    
+    """
 
     emptyCol = [None] * matLen
     emptyMatrix = []
@@ -108,6 +68,8 @@ def createEmptyMatrix(matLen):
     return Matrix(emptyMatrix)
 
 if __name__ == "__main__":
+
+    from random import randint
 
     def randomMatrix():
         matLen = randint(5, 20)
